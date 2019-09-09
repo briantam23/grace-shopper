@@ -19,7 +19,7 @@ A Single Page App created with React, Redux, JWT Authentication, and the Stripe 
 * [Installation](#installation)
 * [Running Locally](#running-locally)
 * [Deploying to Heroku](#deploying-to-heroku)
-* [Contact](#contact)
+* [Contributors](#contributors)
 
 ## What is Stripe?
 [Stripe](https://stripe.com/) is a service that allows users to accept payments online, specifically developers. With the Stripe application, users can keep track of payments, search past payments, create recurring charges, and keep track of customers.
@@ -89,9 +89,9 @@ Alternatively, you can deploy your own copy of the app using the web-based flow:
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Contact
-Feel free to contact me at [briantam23@gmail.com](mailto:briantam23@gmail.com)!
+## Contributors
 
-Personal Website - [briantam23.github.io](http://briantam23.github.io) <br/>
-LinkedIn - [@briantam23](https://linkedin.com/in/briantam23/) <br/>
-Github - [@briantam23](https://github.com/briantam23)
+> [Brian Tam](https://github.com/briantam23) <br/>
+> [Kylie Gao](https://github.com/kyliegao) <br/>
+> [Amr Thameen](https://github.com/amr-thameen) <br/>
+> [Francisco Munoz](https://github.com/Francisc089)
