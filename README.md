@@ -4,9 +4,9 @@
 
 # 🛒 Building an e-Commerce app
 
-![Home page screenshot](./public/img/home-page-screenshot.png)
-
 A Single Page App created with React, Redux, JWT Authentication, and the Stripe API.
+
+![Home page screenshot](./public/img/home-page-screenshot.png)
 
 ![Cart page screenshot](./public/img/cart-page-screenshot.png)
 
