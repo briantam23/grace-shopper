@@ -14,9 +14,6 @@ class AddCategory extends Component {
   }
 
   handleChange(evt) {
-    console.log('target_name:', [ evt.target.name ]);
-    console.log('target_value', evt.target.value);
-
     this.setState({
       [ evt.target.name ] : [ evt.target.name ] == 'products' ? [...evt.target.selectedOptions].map(option => option.value) : evt.target.value
     })
@@ -39,34 +36,32 @@ class AddCategory extends Component {
     const { name } = this.state;
     const { products, auth } = this.props;
     const { handleChange, handleSubmit } = this;
-    if(!auth.isAdmin) {
-      return <h1>You are not authorized to view this page.</h1>
-    } else {
-      return (
-        <div>
-          <h3>Create a new Product Category</h3>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>
-                Name: <input name='name' type='text' value={name} onChange={handleChange} />
-              </label>
-            </div>
-            <div>
-              <label>Select products that belong in this category
-                <select name='products' multiple={true} value={this.state.products} onChange={handleChange}>
-                  {
-                    products.map(product => <option key={product.id}>{product.id} - {product.name}</option>)
-                  }
-                </select>
-              </label>
-            </div>
-            <div>
-              <button type='submit'>Submit</button>
-            </div>
-          </form>
-        </div>
-      )
-    }
+
+    if(!auth.isAdmin) return <h1>You are not authorized to view this page.</h1>
+    return (
+      <div>
+        <h3>Create a new Product Category</h3>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>
+              Name: <input name='name' type='text' value={name} onChange={handleChange} />
+            </label>
+          </div>
+          <div>
+            <label>Select products that belong in this category
+              <select name='products' multiple={true} value={this.state.products} onChange={handleChange}>
+                {
+                  products.map(product => <option key={product.id}>{product.id} - {product.name}</option>)
+                }
+              </select>
+            </label>
+          </div>
+          <div>
+            <button type='submit'>Submit</button>
+          </div>
+        </form>
+      </div>
+    )
   }
 }
 

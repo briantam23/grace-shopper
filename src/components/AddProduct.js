@@ -18,9 +18,6 @@ class AddProduct extends Component {
   }
 
   handleChange(evt) {
-    console.log('target_name:', [ evt.target.name ]);
-    console.log('target_value', evt.target.value);
-
     this.setState({
       [ evt.target.name ] : [ evt.target.name ] == 'categories' ? [...evt.target.selectedOptions].map(option => option.value) : evt.target.value
     })
@@ -44,57 +41,53 @@ class AddProduct extends Component {
     const { name, description, price, quantity, imageUrl } = this.state;
     const {handleChange, handleSubmit} = this;
     const { categories, auth } = this.props;
-    if (!auth.isAdmin) {
-      return <h1>You are not authorized to view this page. Womp Womp =(</h1>
-    } else {
-      return (
-        <div>
-          <h3>Add A New Product</h3>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>
-                Name: <input name='name' type='text' value={name} onChange={handleChange}/>
-              </label>
-            </div>
-            <div>
-              <label>
-                Description: <input name='description' type='text' value={description} onChange={handleChange}/>
-              </label>
-            </div>
-            <div>
-              <label>
-                Price: <input name='price' type='text' value={price} onChange={handleChange}/>
-              </label>
-            </div>
-            <div>
-              <label>
-                Quantity: <input name='quantity' type='text' value={quantity} onChange={handleChange}/>
-              </label>
-            </div>
-            <div>
-              <label>
-                Image: <input name='imageUrl' type='text' value={imageUrl} onChange={handleChange}/>
-              </label>
-            </div>
-            <h4>Product Category</h4>
-            <div>
-              <label>Select from existing categories:
-                <select name='categories' multiple={true} value={this.state.categories} onChange={handleChange}>
-                  <option value={''}>None</option>
-                  {
-                    categories.map(category => <option key={category.id}>{category.id} - {category.name}</option>)
-                  }
-                </select>
-              </label>
-            </div>
-            <div>
-              <button type='submit'>Submit</button>
-            </div>
-          </form>
-        </div>
-      )
-    }
-
+    if (!auth.isAdmin) return <h1>You are not authorized to view this page. Womp Womp =(</h1>
+    return (
+      <div>
+        <h3>Add A New Product</h3>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>
+              Name: <input name='name' type='text' value={name} onChange={handleChange}/>
+            </label>
+          </div>
+          <div>
+            <label>
+              Description: <input name='description' type='text' value={description} onChange={handleChange}/>
+            </label>
+          </div>
+          <div>
+            <label>
+              Price: <input name='price' type='text' value={price} onChange={handleChange}/>
+            </label>
+          </div>
+          <div>
+            <label>
+              Quantity: <input name='quantity' type='text' value={quantity} onChange={handleChange}/>
+            </label>
+          </div>
+          <div>
+            <label>
+              Image: <input name='imageUrl' type='text' value={imageUrl} onChange={handleChange}/>
+            </label>
+          </div>
+          <h4>Product Category</h4>
+          <div>
+            <label>Select from existing categories:
+              <select name='categories' multiple={true} value={this.state.categories} onChange={handleChange}>
+                <option value={''}>None</option>
+                {
+                  categories.map(category => <option key={category.id}>{category.id} - {category.name}</option>)
+                }
+              </select>
+            </label>
+          </div>
+          <div>
+            <button type='submit'>Submit</button>
+          </div>
+        </form>
+      </div>
+    )
   }
 }
 const mapStateToProps = state => {

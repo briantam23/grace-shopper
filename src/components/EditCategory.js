@@ -15,9 +15,6 @@ class EditCategory extends Component {
   }
 
   handleChange(evt) {
-    console.log('target_name:', [ evt.target.name ]);
-    console.log('target_value', evt.target.value);
-
     this.setState({
       [ evt.target.name ] : [ evt.target.name ] == 'products' ? [...evt.target.selectedOptions].map(option => option.value) : evt.target.value
     })

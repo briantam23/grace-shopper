@@ -1,4 +1,3 @@
-[![Known Vulnerabilities](https://app.snyk.io/test/github/briantam23/GraceShopper/badge.svg?targetFile=package.json)](https://app.snyk.io/test/github/briantam23/GraceShopper?targetFile=package.json)
 [![Dependency Status](https://david-dm.org/briantam23/GraceShopper.svg)](https://david-dm.org/briantam23/GraceShopper)
 [![devDependencies Status](https://david-dm.org/briantam23/GraceShopper/dev-status.svg)](https://david-dm.org/briantam23/GraceShopper?type=dev)
 
