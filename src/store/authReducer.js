@@ -4,7 +4,7 @@ import axios from 'axios';
 const SET_AUTH = 'SET_AUTH';
 
 
-const exchangeTokenForAuth = history => (
+export const exchangeTokenForAuth = history => (
     dispatch => {
         const token = window.localStorage.getItem('token');
         if(!token) return;

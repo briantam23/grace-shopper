@@ -1,7 +1,7 @@
 {
   "name": "grace-shopper",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Single Page App created with React, Redux, JWT Authentication, and the Stripe API.",
   "main": "server/index.js",
   "scripts": {
     "start": "node ./server/index.js",
@@ -11,7 +11,7 @@
     "start:dev": "npm run build & DATABASE_URL=postgres://localhost/grace-shopper & JWT_SECRET='foo' nodemon server/index.js --ignore public --ignore src",
     "test": "mocha ./test/*.test.js --watch --require babel-polyfill --compilers js:babel-register"
   },
-  "keywords": [],
+  "keywords": ["react", "redux", "jwt-authentication", "stripe-api"],
   "author": "",
   "license": "ISC",
   "babel": {

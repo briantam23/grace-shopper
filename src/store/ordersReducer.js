@@ -56,16 +56,18 @@ export const fetchOrders = (order, isGuest, status, history) => {
                 if(status === 'COMPLETED') history.push(`/user/${ order.customerId }/orders/${ order.id }`);
                 dispatch(gotOrders(res.data))
             })
-            .catch(ex => console.log(ex))
     )
 }
 
-export const updateOrder = (order) => {
+export const updateOrder = (order, auth, history) => {
     console.log('thunk: ', order)
+    let userId = null;
     return (dispatch) => (
-        axios.put(`/orders/${order.id}`, order)
-            .then(order => dispatch(updatedOrder(order.data)))
-            .catch(ex => console.log(ex))
+        axios.put(`/api/users/${userId}/orders/${order.id}`, order)
+            .then(order => {
+                history.push(`/user/${auth.id}/orders`);
+                dispatch(updatedOrder(order.data));
+            })
     )
 }
 
@@ -77,7 +79,6 @@ export const createLineItem = (order, lineItem, product, quantity) => {
         axios.post(`/api/users/${userId}/orders/${order.id}/lineItems`, product)
             .then(() => dispatch(fetchOrders()))
             // .then(res => dispatch(createdLineItem(orderId,res.data)))
-            .catch(ex => console.log(ex))
     )
 }
 
@@ -91,7 +92,6 @@ export const updateLineItem = (order, lineItem, change, quantity) => {
         axios.put(`api/users/${userId}/orders/${order.id}/lineItems/${lineItem.id}`, lineItem)
             .then(() => dispatch(fetchOrders()))
             // .then(res => dispatch(updatedLineItem(orderId,res.data)))
-            .catch(ex => console.log(ex))
     )
 }
 
@@ -101,7 +101,6 @@ export const deleteLineItem = (order, lineItem) => {
         axios.delete(`api/users/${userId}/orders/${order.id}/lineItems/${lineItem.id}`)
             .then(() => dispatch(fetchOrders()))
             // .then(() => dispatch(deletedLineItem(orderId,lineItemId)))
-            .catch(ex => console.log(ex))
     )
 }
 

@@ -19,7 +19,7 @@ class Cart extends Component {
                 <h3>Shopping Cart</h3>
                 <br/>
             {
-                !lineItems.length ? (
+                !lineItems ? (
                 <Fragment>
                     <h4>Your Shopping Cart is Empty!</h4> 
                     <Link to='/'>
@@ -52,7 +52,7 @@ class Cart extends Component {
                         <strong><hr/></strong>
                         <h4 style={ floatRight }>Total: ${ total }</h4>
                         <br/><br/>
-                        <button onClick={() => updateOrder(cartOrder, 'CREATED', isGuest, history) } 
+                        <button onClick={() => updateOrder(cartOrder, auth, history) } 
                             style={ floatRight } className="btn btn-success my-2 my-sm-0">Checkout</button>
                         <br/><br/><br/>
                     </Fragment>
@@ -68,7 +68,10 @@ const mapStateToProps = ({ auth, orders }, { history }) => {
 
     //lineItem logic
     const cartOrder = findOrder(auth, orders, 'CART')
-    const lineItems = findLineItems(cartOrder);
+
+    let lineItems = null;
+    if(cartOrder.lineItems) lineItems = findLineItems(cartOrder);
+
     const total = findOrderTotal(cartOrder);
     //creating order logic
     let isGuest = true; 

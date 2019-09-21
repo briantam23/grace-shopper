@@ -9,6 +9,7 @@ import { Jumbotron } from 'reactstrap';
 class Orders extends Component {
     render() {
         const { completedOrders } = this.props;
+        console.log(completedOrders)
         return (
             <div className="container" style={{marginTop: '30px'}}>
                 {
@@ -30,7 +31,7 @@ class Orders extends Component {
                             <span>Here you will find all the things that you have ordered from Wacko Dreamer:</span>
                         </div>
                         <br />
-                        { mapOrders(completedOrders) }
+                        { completedOrders[0].lineItems ? mapOrders(completedOrders) : null }
                     </Fragment>
                     )
                 }

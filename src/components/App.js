@@ -18,6 +18,7 @@ import AdminOrderPage from './AdminOrderPage'
 import SignUp from './SignUp'
 import AdminOrderInfo from './AdminOrderInfo'
 import { connect } from 'react-redux'
+import { exchangeTokenForAuth } from '../store/authReducer';
 import { fetchProducts } from '../store/productsReducer.js'
 import { fetchCategories } from '../store/categoriesReducer.js'
 import { fetchOrders } from '../store/ordersReducer.js'
@@ -27,14 +28,12 @@ import { findOrder } from '../util';
 
 class App extends Component {
 
-    constructor(){
-        super()
-    }
-
     componentDidMount(){
-        this.props.fetchOrders()
-        this.props.fetchProducts()
-        this.props.fetchCategories()
+        const { exchangeTokenForAuth, fetchOrders, fetchProducts, fetchCategories } = this.props;
+        exchangeTokenForAuth();
+        fetchOrders()
+        fetchProducts()
+        fetchCategories()
     }
 
     render(){
@@ -72,13 +71,8 @@ class App extends Component {
     }
 }
 
-const mapDispatchToProps = ({ fetchProducts, fetchCategories, fetchOrders });
-/* (dispatch) => {
-    return {
-        fetchProducts: () => dispatch(fetchProducts()),
-        fetchCategories: () => dispatch(fetchCategories()),
-        fetchOrders: () => dispatch(fetchOrders())
-    }
-} */
+
+const mapDispatchToProps = ({ exchangeTokenForAuth, fetchProducts, fetchCategories, fetchOrders });
+
 
 export default connect(null, mapDispatchToProps)(App)
