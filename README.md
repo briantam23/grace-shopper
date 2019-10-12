@@ -1,5 +1,5 @@
-[![Dependency Status](https://david-dm.org/briantam23/GraceShopper.svg)](https://david-dm.org/briantam23/GraceShopper)
-[![devDependencies Status](https://david-dm.org/briantam23/GraceShopper/dev-status.svg)](https://david-dm.org/briantam23/GraceShopper?type=dev)
+[![Dependency Status](https://david-dm.org/briantam23/grace-shopper.svg)](https://david-dm.org/briantam23/grace-shopper)
+[![devDependencies Status](https://david-dm.org/briantam23/grace-shopper/dev-status.svg)](https://david-dm.org/briantam23/grace-shopper?type=dev)
 
 # 🛒 Building an e-Commerce app
 
@@ -30,7 +30,7 @@ A Single Page App created with React, Redux, JWT Authentication, and the Stripe 
 
 ## Live Demo
 
-Currently deployed to [Heroku](https://wd-grace-shopper.herokuapp.com)!
+Currently deployed to [Heroku](https://grace-shopper-wd.herokuapp.com)!
 
 ## Dependencies
 
@@ -49,7 +49,7 @@ Currently deployed to [Heroku](https://wd-grace-shopper.herokuapp.com)!
 
 Step 1: Clone Repo
 ```sh
-git clone https://github.com/briantam23/GraceShopper.git` # or clone your own fork
+git clone https://github.com/briantam23/grace-shopper.git` # or clone your own fork
 ```
 
 Step 2: Create Database
